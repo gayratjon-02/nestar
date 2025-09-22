@@ -67,7 +67,7 @@ export class Member {
 	memberWarnings: number;
 
 	@Field(() => Int)
-	memberBlock: number;
+	memberBlocks: number;
 
 	@Field(() => Date, { nullable: true })
 	deletedAt?: Date;
