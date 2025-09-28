@@ -1,4 +1,37 @@
 //  ******************************************************
+//  ******************************************************
+//  ******************************************************
+
+// Shunday function yozing, u 2 ta array parametr qabul qilsin.
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
+// (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
+
+function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+	if (arr1.length === 0 && arr2.length === 0) return true;
+	const set1 = new Set(arr1);
+	const set2 = new Set(arr2);
+
+	for (const val of set1) {
+		if (!set2.has(val)) return false;
+	}
+	for (const val of set2) {
+		if (!set1.has(val)) return false;
+	}
+
+	return true;
+}
+
+// Testlar:
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
+console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
+
+// MASALAN:
+// areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+// areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+// areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+
+//  ******************************************************
 
 // TASK ZN:
 
@@ -8,11 +41,11 @@
 // raqamlarni indeksdan tashqarida bo'lgan raqamlar bilan o'rnini
 // almashtirib qaytarsin.
 
-function rotateArray(arrNumbers: number[], num: number) {
-	return arrNumbers.slice(num + 1).concat(arrNumbers.slice(0, num + 1));
-}
+// function rotateArray(arrNumbers: number[], num: number) {
+// 	return arrNumbers.slice(num + 1).concat(arrNumbers.slice(0, num + 1));
+// }
 
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
 
 // MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3); return [5, 6, 1, 2, 3, 4];
 
