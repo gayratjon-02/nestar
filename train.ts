@@ -1,30 +1,51 @@
 //  ******************************************************
 //  ******************************************************
+
+// ZO-TASK:
+
+// Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+function areParenthesesBalanced(text: string) {
+	// console.log('text:', text);
+	const result: number = text.split('').filter((ele) => ele === '(').length;
+	const result2: number = text.split('').filter((ele) => ele === ')').length;
+
+	if (result === result2) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+console.log(areParenthesesBalanced('string(ichida(qavslar)soni()balansda'));
+console.log(areParenthesesBalanced('string(ichid)a(qavslar)soni()balansda'));
+console.log(areParenthesesBalanced('string(ich)ida(qavslar)soni()balansda'));
+console.log(areParenthesesBalanced('string(ichida(qavslar)soni()balansda'));
 //  ******************************************************
 
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
 // Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
 // (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
 
-function areArraysEqual(arr1: any[], arr2: any[]): boolean {
-	if (arr1.length === 0 && arr2.length === 0) return true;
-	const set1 = new Set(arr1);
-	const set2 = new Set(arr2);
+// function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+// 	if (arr1.length === 0 && arr2.length === 0) return true;
+// 	const set1 = new Set(arr1);
+// 	const set2 = new Set(arr2);
 
-	for (const val of set1) {
-		if (!set2.has(val)) return false;
-	}
-	for (const val of set2) {
-		if (!set1.has(val)) return false;
-	}
+// 	for (const val of set1) {
+// 		if (!set2.has(val)) return false;
+// 	}
+// 	for (const val of set2) {
+// 		if (!set1.has(val)) return false;
+// 	}
 
-	return true;
-}
+// 	return true;
+// }
 
-// Testlar:
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
-console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
+// console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
 
 // MASALAN:
 // areArraysEqual([1, 2, 3], [3, 1, 2]) // true
