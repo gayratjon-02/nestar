@@ -1,27 +1,35 @@
 //  ******************************************************
-//  ******************************************************
+
+function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+	return arr1.every(ele => arr2.includes(ele));
+  }
+  
+  console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));   // true
+  console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // true
+  console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));   // false
+  
 
 // ZO-TASK:
 
 // Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 
-function areParenthesesBalanced(text: string) {
-	// console.log('text:', text);
-	const result: number = text.split('').filter((ele) => ele === '(').length;
-	const result2: number = text.split('').filter((ele) => ele === ')').length;
+// function areParenthesesBalanced(text: string) {
+// 	// console.log('text:', text);
+// 	const result: number = text.split('').filter((ele) => ele === '(').length;
+// 	const result2: number = text.split('').filter((ele) => ele === ')').length;
 
-	if (result === result2) {
-		return true;
-	} else {
-		return false;
-	}
-}
+// 	if (result === result2) {
+// 		return true;
+// 	} else {
+// 		return false;
+// 	}
+// }
 
-console.log(areParenthesesBalanced('string(ichida(qavslar)soni()balansda'));
-console.log(areParenthesesBalanced('string(ichid)a(qavslar)soni()balansda'));
-console.log(areParenthesesBalanced('string(ich)ida(qavslar)soni()balansda'));
-console.log(areParenthesesBalanced('string(ichida(qavslar)soni()balansda'));
+// console.log(areParenthesesBalanced('string(ichida(qavslar)soni()balansda'));
+// console.log(areParenthesesBalanced('string(ichid)a(qavslar)soni()balansda'));
+// console.log(areParenthesesBalanced('string(ich)ida(qavslar)soni()balansda'));
+// console.log(areParenthesesBalanced('string(ichida(qavslar)soni()balansda'));
 //  ******************************************************
 
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
