@@ -24,7 +24,7 @@ export const getSerialForImage = (filename: string) => {
 };
 
 export const shapeIntoMongoObjectId = (target: any) => {
-	return typeof target === 'string' ? new Object(target) : target;
+	return typeof target === 'string' ? new ObjectId(target) : target;
 };
 
 export const lookupMember = {
