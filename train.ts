@@ -1,13 +1,31 @@
+// TASK ZR:
+
+// Shunday function yozing, bu function,
+// berilgan parametr string tarkibidagi raqam va sonlarni
+// sanab object sifatida qaytarsin.
+
+function countNumberAndLetters(str: string) {
+	let result = { number: 0, letter: 0 };
+
+	for (let char of str) {
+		if (/[0-9]/.test(char)) result.number++;
+		else if (/[a-zA-Z]/.test(char)) result.letter++;
+	}
+	return result;
+}
+console.log(countNumberAndLetters('string152%¥'));
+
+// MASALAN: countNumberAndLetters(“string152%\¥”); return {number: 3, letter: 6};
+
 //  ******************************************************
 
-function areArraysEqual(arr1: number[], arr2: number[]): boolean {
-	return arr1.every(ele => arr2.includes(ele));
-  }
-  
-  console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));   // true
-  console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // true
-  console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));   // false
-  
+// function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+// 	return arr1.every(ele => arr2.includes(ele));
+//   }
+
+//   console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));   // true
+//   console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // true
+//   console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));   // false
 
 // ZO-TASK:
 
