@@ -1,19 +1,33 @@
+//  ******************************************************
+
+function singleNumber(nums: number[]): number {
+	let result = 0;
+	for (const num of nums) {
+		result ^= num; //
+	}
+	return result;
+}
+
+console.log(singleNumber([4, 2, 1, 2, 1])); // 4
+
+//  ******************************************************
+
 // TASK ZR:
 
 // Shunday function yozing, bu function,
 // berilgan parametr string tarkibidagi raqam va sonlarni
 // sanab object sifatida qaytarsin.
 
-function countNumberAndLetters(str: string) {
-	let result = { number: 0, letter: 0 };
+// function countNumberAndLetters(str: string) {
+// 	let result = { number: 0, letter: 0 };
 
-	for (let char of str) {
-		if (/[0-9]/.test(char)) result.number++;
-		else if (/[a-zA-Z]/.test(char)) result.letter++;
-	}
-	return result;
-}
-console.log(countNumberAndLetters('string152%¥'));
+// 	for (let char of str) {
+// 		if (/[0-9]/.test(char)) result.number++;
+// 		else if (/[a-zA-Z]/.test(char)) result.letter++;
+// 	}
+// 	return result;
+// }
+// console.log(countNumberAndLetters('string152%¥'));
 
 // MASALAN: countNumberAndLetters(“string152%\¥”); return {number: 3, letter: 6};
 
