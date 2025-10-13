@@ -1,14 +1,47 @@
 //  ******************************************************
+//  ******************************************************
+//  ******************************************************
+//  ******************************************************
+//  ******************************************************
+//  ******************************************************
 
-function singleNumber(nums: number[]): number {
-	let result = 0;
-	for (const num of nums) {
-		result ^= num; //
+// TASK ZT:
+
+// Shunday function yozing, bu function parametrdagi string ichida
+// bir marotabadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin
+function firstUniqueCharIndex(input: string): Number {
+	const store = {};
+
+	for (const char of input) {
+		store[char] = (store[char] | 0) + 1;
 	}
-	return result;
-}
+	for (let i = 0; i < input.length; i++) {
+		if (store[input[i]] === 1) return i;
+	}
 
-console.log(singleNumber([4, 2, 1, 2, 1])); // 4
+	console.log('store', store);
+	return null;
+}
+console.log(firstUniqueCharIndex('lalalalay'));
+console.log(firstUniqueCharIndex('stamp'));
+// MASALAN: firstUniqueCharIndex(“stamp”); return 0;
+
+// Yuqoridagi misolda, 'stamp' so'zi tarkibida barcha harflar bir marotabadan
+// ortiq takrorlanmagan, lekin shartga muvofiq, birinchi topilgan harf indeksi qaytarilmoqda.
+
+//  ******************************************************
+//  ******************************************************
+//  ******************************************************
+
+// function singleNumber(nums: number[]): number {
+// 	let result = 0;
+// 	for (const num of nums) {
+// 		result ^= num; //
+// 	}
+// 	return result;
+// }
+
+// console.log(singleNumber([4, 2, 1, 2, 1])); // 4
 
 //  ******************************************************
 
