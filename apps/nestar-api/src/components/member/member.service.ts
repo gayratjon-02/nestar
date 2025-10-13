@@ -14,6 +14,7 @@ import { LikeInput } from '../../libs/dto/like/like.input';
 import { LikeGroup } from '../../libs/enums/like.enum';
 import { LikeService } from '../like/like.service';
 import { Follower, Following, MeFollowed } from '../../libs/dto/follow/follow';
+import { loopupAuthMemberLiked } from '../../libs/config';
 
 @Injectable()
 export class MemberService {
@@ -109,11 +110,10 @@ export class MemberService {
 		return targetMember;
 	}
 
-	private  async checkSubscription(followerId: ObjectId, followingId: ObjectId): Promise<MeFollowed[]> {
+	private async checkSubscription(followerId: ObjectId, followingId: ObjectId): Promise<MeFollowed[]> {
 		const result = await this.followModel.findOne({ followingId: followingId, followerId: followerId }).exec();
 		return result ? [{ followerId: followerId, followingId: followingId, myFollowing: true }] : [];
 	}
-
 
 	public async getAgents(memberId: ObjectId, input: AgentsInquiry): Promise<Members> {
 		const { text } = input.search,
@@ -129,7 +129,11 @@ export class MemberService {
 				{ $sort: sort },
 				{
 					$facet: {
-						list: [{ $skip: (input.page - 1) * input.limit }, { $limit: input.limit }],
+						list: [
+							{ $skip: (input.page - 1) * input.limit }, //
+							{ $limit: input.limit },
+							loopupAuthMemberLiked(memberId),
+						],
 						metaCounter: [{ $count: 'total' }],
 					},
 				},
@@ -193,7 +197,6 @@ export class MemberService {
 
 		return result;
 	}
-
 
 	public async memberStatsEditor(input: StatisticModifier): Promise<Member> {
 		const { _id, targetKey, modifier } = input;
