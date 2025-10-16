@@ -3,27 +3,54 @@
 //  ******************************************************
 //  ******************************************************
 //  ******************************************************
+// TASK ZU:
+
+// Shunday function yozing, va bu function parametr sifatida
+// raqamlardan iborat array'ni qabul qilsin. Function'ning vazifasi,
+// berilgan parametr array tarkibida takrorlanmagan raqamlarni topib
+// ularni yig'indisini qaytarsin.
+
+function sumOfUnique(arr:number[]) {
+	let sum = 0;
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr.indexOf(arr[i]) === arr.lastIndexOf(arr[i])) {
+			sum += arr[i];
+		}
+	}
+
+	return sum;
+}
+
+console.log(sumOfUnique([1, 2, 3, 2]));  
+
+// MASALAN: sumOfUnique([1,2,3,2]); return 4;
+
+// Yuqoridagi misolda, argument sifatida pass qilinayotgan array
+// tarkibida bir marotabadan ortiq takrorlanmagan raqamlar, bular '1', '3'.
+// Va natija sifatida yig'indi 4'ga teng.
+
 //  ******************************************************
 
 // TASK ZT:
 
 // Shunday function yozing, bu function parametrdagi string ichida
 // bir marotabadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin
-function firstUniqueCharIndex(input: string): Number {
-	const store = {};
+// function firstUniqueCharIndex(input: string): Number {
+// 	const store = {};
 
-	for (const char of input) {
-		store[char] = (store[char] | 0) + 1;
-	}
-	for (let i = 0; i < input.length; i++) {
-		if (store[input[i]] === 1) return i;
-	}
+// 	for (const char of input) {
+// 		store[char] = (store[char] | 0) + 1;
+// 	}
+// 	for (let i = 0; i < input.length; i++) {
+// 		if (store[input[i]] === 1) return i;
+// 	}
 
-	console.log('store', store);
-	return null;
-}
-console.log(firstUniqueCharIndex('lalalalay'));
-console.log(firstUniqueCharIndex('stamp'));
+// 	console.log('store', store);
+// 	return null;
+// }
+// console.log(firstUniqueCharIndex('lalalalay'));
+// console.log(firstUniqueCharIndex('stamp'));
 // MASALAN: firstUniqueCharIndex(“stamp”); return 0;
 
 // Yuqoridagi misolda, 'stamp' so'zi tarkibida barcha harflar bir marotabadan
