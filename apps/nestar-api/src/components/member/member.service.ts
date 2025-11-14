@@ -26,7 +26,6 @@ export class MemberService {
 		private likeService: LikeService,
 	) {}
 	public async signup(input: MemberInput): Promise<Member> {
-		// TODO Hash Password
 		input.memberPassword = await this.authService.hashPassword(input.memberPassword);
 
 		try {
@@ -52,7 +51,6 @@ export class MemberService {
 			throw new InternalServerErrorException(Message.BLOCKED_USER);
 		}
 
-		// TODO Compare password
 		const isMatch = await this.authService.comparePasswords(input.memberPassword, response.memberPassword);
 		if (!isMatch) throw new InternalServerErrorException(Message.WRONG_PASSWORD);
 

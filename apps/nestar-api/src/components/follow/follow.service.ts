@@ -4,7 +4,6 @@ import { Model, ObjectId } from 'mongoose';
 import { Follower, Followers, Following, Followings } from '../../libs/dto/follow/follow';
 import { MemberService } from '../member/member.service';
 import { Direction, Message } from '../../libs/enums/common.enum';
-import { waitForDebugger } from 'inspector';
 import { FollowInquiry } from '../../libs/dto/follow/follow.input';
 import {
 	lookupFollowerData,
@@ -13,7 +12,6 @@ import {
 	loopupAuthMemberLiked,
 } from '../../libs/config';
 import { T } from '../../libs/types/common';
-import { hrtime } from 'process';
 
 @Injectable()
 export class FollowService {
