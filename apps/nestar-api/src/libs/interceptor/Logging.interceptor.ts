@@ -28,6 +28,8 @@ export class LoggingInterceptor implements NestInterceptor {
 				}),
 			);
 		}
+
+		return next.handle();
 	}
 
 	private stringify(context: ExecutionContext): string {
